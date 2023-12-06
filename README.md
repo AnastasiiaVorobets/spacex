@@ -9,6 +9,7 @@
 - Atomic design Pattern
 - Styled Component
 
+
 ## To run the project
 - Make a fork
 - Clone the project
