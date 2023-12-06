@@ -1,4 +1,4 @@
-- [DEMO]()
+- [DEMO](https://anastasiiavorobets.github.io/spacex/)
 
 ## Technologies
 - Node v16.20.2
