@@ -33,7 +33,6 @@ export const Nav = styled.nav<Props>`
   }
 `;
 
-
 export const SignIn = styled.button`
   width: 163px;
   height: 53px;

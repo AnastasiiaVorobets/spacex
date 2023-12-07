@@ -8,7 +8,6 @@ import {SignInButton , FavoriteButton} from '../../atoms/Buttons/Buttons';
 import Logo from '../../atoms/Logo/Logo';
 
 const Navigation: React.FC = () => {
-
   return (
     <Menu>
       <Logo />

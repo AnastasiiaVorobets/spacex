@@ -19,7 +19,6 @@ const Header: React.FC = () => {
         <HomeTitle />
         <ExploreLink onClick={handleExploreClick}>Explore tours <img src={down} alt="" /></ExploreLink>
       </HeaderContainer>
-
     </>
   );
 };

@@ -41,9 +41,7 @@ export const ButtonsContainer = styled.div`
   justify-content: space-around;
 `;
 
-
-
-export const FavButton = styled.button`
+export const FavButton = styled.button<{ isFavorited?: boolean }>`
   width: 53px;
   height: 53px;
   display: flex;
@@ -52,11 +50,11 @@ export const FavButton = styled.button`
   color: white;
   cursor: pointer;
   border: none;
-  background-color: #ECECEC;
+  background-color: ${({ isFavorited }) => (isFavorited ? '#DD377D' : '#ECECEC')};
   transition: background-color 1s;
 
   &:hover {
-    background-color: #DD377D;
+    background-color: ${({ isFavorited }) => (isFavorited ? '#DD377D' : '#DD377D')};
   }
 
   img {

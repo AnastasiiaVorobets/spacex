@@ -9,4 +9,3 @@ export const HeaderContainer = styled.header`
   background: linear-gradient(rgba(30, 30, 30, 0.5), rgba(30, 30, 30, 0.5)), url(${favTour}) center/cover no-repeat;
   color: white;
 `;
-

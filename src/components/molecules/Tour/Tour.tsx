@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Tour as TourType } from '../../../types/tourType';
 import { TourContainer, ButtonsContainer, FavButton } from './TourStyles';
@@ -13,17 +13,18 @@ interface TourProps {
 }
 
 const Tour: React.FC<TourProps> = ({ tour, isOnFavoritesPage }) => {
-
   const dispatch = useDispatch();
+  const [isFavorited, setIsFavorited] = useState(false);
 
   const handleFavoriteClick = () => {
     dispatch(addFavorite(tour));
-  }
+    setIsFavorited(true);
+  };
 
   const handleRemoveFromFavoritesClick = () => {
     dispatch(removeFavorite(tour.id));
+    setIsFavorited(false);
   };
-  
 
   return (
     <TourContainer>
@@ -33,10 +34,13 @@ const Tour: React.FC<TourProps> = ({ tour, isOnFavoritesPage }) => {
       <ButtonsContainer>
         <BuyButton />
         {isOnFavoritesPage ? (
-          <FavButton onClick={handleRemoveFromFavoritesClick}><img src={deleteIcon} alt="" /></FavButton>
-        )
-        : (
-          <FavButton onClick={handleFavoriteClick}><img src={blackFavIcon} alt="" /></FavButton>
+          <FavButton onClick={handleRemoveFromFavoritesClick}>
+            <img src={deleteIcon} alt="deleteIcon" />
+          </FavButton>
+        ) : (
+          <FavButton onClick={handleFavoriteClick} isFavorited={isFavorited}>
+            <img src={blackFavIcon} alt="blackFavIcon" />
+          </FavButton>
         )}
       </ButtonsContainer>
     </TourContainer>

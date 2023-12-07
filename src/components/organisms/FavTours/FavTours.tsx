@@ -16,7 +16,6 @@ const FavTours: React.FC = () => {
   return (
     <Container>
       <ClearAllText onClick={handleRemoveAllFavorites}>Clear all</ClearAllText>
-  
       <TourContainer>
         {favorites.map((tour: TourType) => (
           <Tour
@@ -28,5 +27,6 @@ const FavTours: React.FC = () => {
       </TourContainer>
     </Container>
   );
-        }  
+};
+
 export default FavTours;

@@ -3,7 +3,6 @@ import tour1 from '../../../assets/banners/tour1.png';
 import tour2 from '../../../assets/banners/tour2.png';
 import tour3 from '../../../assets/banners/tour3.png';
 
-
 const changeBackground = keyframes`
   0% {
     background-image: url(${tour1});

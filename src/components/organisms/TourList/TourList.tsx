@@ -34,13 +34,13 @@ const TourList: React.FC<TourListProps> = ({ tours }) => {
       <TourListHeading>Popular Tours</TourListHeading>
       <ButtonsContainer>
       <StyledButton onClick={handlePrevClick} disabled={currentTourIndex === 0}>
-        <StyledArrow src={arrowLeft} alt="" />
+        <StyledArrow src={arrowLeft} alt="arrowLeft" />
       </StyledButton>
       <StyledButton
         onClick={handleNextClick}
         disabled={currentTourIndex === tours.length - toursPerPage}
       >
-        <StyledArrow src={arrowRight} alt="" />
+        <StyledArrow src={arrowRight} alt="arrowRight" />
       </StyledButton>
       </ButtonsContainer>
     </HeaderBlock>

@@ -13,7 +13,8 @@ export const FavoriteButton: React.FC = () => {
     if (location.pathname === '/favorites') {
       setHeartImage(favIcon);
       setBackground('#DD377D');
-    } else {
+    }
+    else {
       setHeartImage(blackFavIcon);
       setBackground('#ECECEC');
     }
