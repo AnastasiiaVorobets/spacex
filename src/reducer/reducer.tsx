@@ -17,10 +17,16 @@ const initialState: State = {
 const favoriteReducer = (state: State = initialState, action: Action): State => {
   switch (action.type) {
     case ADD_FAVORITE:
-      return {
-        ...state,
-        favorites: [...state.favorites, action.payload as Tour],
-      };
+      const tourToAdd = action.payload as Tour;
+      const isTourInFavorites = state.favorites.some((tour) => tour.id === tourToAdd.id);
+
+      if (!isTourInFavorites) {
+        return {
+          ...state,
+          favorites: [...state.favorites, tourToAdd],
+        };
+      }
+      return state;
 
     case REMOVE_FAVORITE:
       return {
