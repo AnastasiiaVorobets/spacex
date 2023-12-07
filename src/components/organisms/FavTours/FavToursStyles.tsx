@@ -7,6 +7,8 @@ export const Container = styled.div`
 `;
 
 export const ClearAllText = styled.span`
+  font-size: 24px;
+  font-weight: 300;
   margin-left: auto;
   margin-bottom: 20px;
   margin-right: 50px;
