@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Tour from '../../molecules/Tour/Tour';
 import { Tour as TourType } from '../../../types/tourType';
-import { TourListContainer, PaginationDots, Container } from './TourListStyles';
+import { TourListHeading, TourListContainer, PaginationDots, Container } from './TourListStyles';
 
 interface TourListProps {
   tours: TourType[];
@@ -28,7 +28,7 @@ const TourList: React.FC<TourListProps> = ({ tours }) => {
 
   return (
     <Container id='main'>
-      <h1>Popular Tours</h1>
+      <TourListHeading>Popular Tours</TourListHeading>
       <div>
         <button onClick={handlePrevClick} disabled={currentTourIndex === 0}>
           &lt;

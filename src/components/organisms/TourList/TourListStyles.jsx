@@ -1,8 +1,15 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin: 25px 80px;
+  margin: 80px 80px;
   font-size: 32px;
+`;
+
+export const TourListHeading = styled.h1`
+  font-size: 32px;
+  font-weight: 800;
+  margin-left: 20px;
+  text-transform: uppercase;
 `;
 
 export const TourListContainer = styled.div`

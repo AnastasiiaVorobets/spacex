@@ -2,6 +2,7 @@ import React from 'react';
 import Navigation from '../../molecules/Navigation/Navigation';
 import { HeaderContainer, ExploreLink } from './HeaderStyles';
 import down from '../../../assets/icons/downIcon.png';
+import { HomeTitle } from '../../atoms/Titles/Titles';
 
 const Header: React.FC = () => {
   const handleExploreClick = () => {
@@ -15,6 +16,7 @@ const Header: React.FC = () => {
     <>
       <HeaderContainer>
         <Navigation />
+        <HomeTitle />
         <ExploreLink onClick={handleExploreClick}>Explore tours <img src={down} alt="" /></ExploreLink>
       </HeaderContainer>
 
