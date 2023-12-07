@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin: 80px 80px;
+  margin: 96px 80px;
   font-size: 32px;
 `;
 
@@ -24,7 +24,7 @@ export const PaginationDots = styled.div`
 
   span {
     position: relative;
-    margin: 0 5px;
+    margin: 40px 5px 0;
     width: 24px;
     height: 24px;
     display: flex;
@@ -57,4 +57,40 @@ export const PaginationDots = styled.div`
       height: 12px;
     }
   }
+`;
+
+export const HeaderBlock = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-right: 20px;
+  align-items: center;
+`;
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+`;
+
+export const StyledButton = styled.button`
+  width: 44px;
+  height: 44px;
+  background-color: #D3EAFF;
+  color: #ffffff;
+  border: none;
+  padding: 0;
+  margin: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:disabled {
+    background-color: #d3d3d3;
+    color: #808080;
+    cursor: not-allowed;
+  }
+`;
+
+export const StyledArrow = styled.img`
+  height: 24px;
+  width: 24px;
 `;

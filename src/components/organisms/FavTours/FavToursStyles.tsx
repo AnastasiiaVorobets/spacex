@@ -9,6 +9,7 @@ export const Container = styled.div`
 export const ClearAllText = styled.span`
   margin-left: auto;
   margin-bottom: 20px;
+  margin-right: 50px;
   color: #556B84;
   cursor: pointer;
 `;

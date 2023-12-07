@@ -54,6 +54,8 @@ export const SignIn = styled.button`
 `;
 
 export const Buy = styled.button`
+  font-weight: 600;
+  font-size: 24px;
   width: 278px;
   height: 53px;
   text-transform: uppercase;

@@ -28,12 +28,11 @@ export const HeaderContainer = styled.header`
   background-size: cover;
 `;
 
-
 export const ExploreLink = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 50px;
+  padding-bottom: 33px;
   text-align: center;
   font-size: 32px;
   font-weight: 300;

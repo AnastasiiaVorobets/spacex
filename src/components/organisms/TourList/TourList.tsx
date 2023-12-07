@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import Tour from '../../molecules/Tour/Tour';
 import { Tour as TourType } from '../../../types/tourType';
-import { TourListHeading, TourListContainer, PaginationDots, Container } from './TourListStyles';
+import { TourListHeading, TourListContainer, PaginationDots, Container, HeaderBlock, StyledButton,StyledArrow, ButtonsContainer } from './TourListStyles';
+import arrowRight from '../../../assets/icons/arrowRight.png';
+import arrowLeft from '../../../assets/icons/arrowLeft.png';
 
 interface TourListProps {
   tours: TourType[];
@@ -28,18 +30,20 @@ const TourList: React.FC<TourListProps> = ({ tours }) => {
 
   return (
     <Container id='main'>
+      <HeaderBlock>
       <TourListHeading>Popular Tours</TourListHeading>
-      <div>
-        <button onClick={handlePrevClick} disabled={currentTourIndex === 0}>
-          &lt;
-         </button>
-        <button
-          onClick={handleNextClick}
-          disabled={currentTourIndex === tours.length - toursPerPage}
-        >
-          &gt;
-        </button>
-      </div>
+      <ButtonsContainer>
+      <StyledButton onClick={handlePrevClick} disabled={currentTourIndex === 0}>
+        <StyledArrow src={arrowLeft} alt="" />
+      </StyledButton>
+      <StyledButton
+        onClick={handleNextClick}
+        disabled={currentTourIndex === tours.length - toursPerPage}
+      >
+        <StyledArrow src={arrowRight} alt="" />
+      </StyledButton>
+      </ButtonsContainer>
+    </HeaderBlock>
 
       <TourListContainer>
         {currentTours.map((tour) => (
