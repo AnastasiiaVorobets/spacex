@@ -28,9 +28,9 @@ const Tour: React.FC<TourProps> = ({ tour, isOnFavoritesPage }) => {
 
   return (
     <TourContainer>
-      <img src={tour.img} alt={tour.title} />
-      <h2>{tour.title}</h2>
-      <p>{tour.text}</p>
+      <img src={tour.img} alt={tour.name} />
+      <h2>{tour.name}</h2>
+      <p>{tour.description}</p>
       <ButtonsContainer>
         <BuyButton />
         {isOnFavoritesPage ? (

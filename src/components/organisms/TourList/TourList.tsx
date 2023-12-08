@@ -30,6 +30,7 @@ const TourList: React.FC<TourListProps> = ({ tours }) => {
 
   return (
     <Container id='main'>
+
       <HeaderBlock>
       <TourListHeading>Popular Tours</TourListHeading>
       <ButtonsContainer>

@@ -68,3 +68,24 @@ export const Buy = styled.button`
     background-color: #6699cc;
   }
 `;
+
+export const ExploreLink = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 33px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 300;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+
+  img {
+    margin-left: 5px;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+`;
