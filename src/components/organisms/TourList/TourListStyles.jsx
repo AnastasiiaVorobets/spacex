@@ -67,6 +67,7 @@ export const HeaderBlock = styled.div`
 `;
 
 export const ButtonsContainer = styled.div`
+  margin-right: 20px;
   display: flex;
 `;
 

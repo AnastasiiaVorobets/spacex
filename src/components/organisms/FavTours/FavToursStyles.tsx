@@ -19,6 +19,7 @@ export const ClearAllText = styled.span`
   color: #556B84;
   cursor: pointer;
 `;
+
 export const TourContainer = styled.div`
   margin-top: 20px;
   display: flex;
