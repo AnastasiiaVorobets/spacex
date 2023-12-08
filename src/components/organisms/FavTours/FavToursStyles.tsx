@@ -4,6 +4,10 @@ export const Container = styled.div`
   margin: 80px 80px;
   display: flex;
   flex-direction: column;
+
+  p {
+    text-align: center;
+  }
 `;
 
 export const ClearAllText = styled.span`

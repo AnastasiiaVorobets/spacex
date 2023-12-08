@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Nav , SignIn, Buy, ExploreLink } from './ButtonsStyles';
 import favIcon from '../../../assets/icons/favIcon.png';
 import blackFavIcon from '../../../assets/icons/blackFavIcon.png';
-import { Nav , SignIn, Buy, ExploreLink } from './ButtonsStyles';
 import downIcon from '../../../assets/icons/downIcon.png'
 
 export const FavoriteButton: React.FC = () => {

@@ -1,26 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { ApolloProvider } from '@apollo/client';
 import App from './App';
 import store from './store/store';
 import client from './apollo/client';
-import './index.css';
+import { GlobalStyles } from './globalStyles';
 
-// Import createRoot from 'react-dom/client' instead of 'react-dom'
-import { createRoot } from 'react-dom/client';
+const root = document.getElementById('root') ?? document.createElement('div') as HTMLElement;
 
-const root = document.getElementById('root') ?? document.createElement('div');
-
-// Use createRoot from 'react-dom/client'
 const reactRoot = createRoot(root);
 
 reactRoot.render(
-  <React.StrictMode>
+  <React.Fragment>
+    <GlobalStyles />
     <ApolloProvider client={client}>
       <Provider store={store}>
         <App />
       </Provider>
     </ApolloProvider>
-  </React.StrictMode>,
+  </React.Fragment>,
 );
+

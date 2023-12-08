@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { BuyButton } from '../../atoms/Buttons/Buttons';
 import { Tour as TourType } from '../../../types/tourType';
-import { TourContainer, ButtonsContainer, FavButton , DescriptionContainer} from './TourStyles';
 import { addFavorite, removeFavorite } from '../../../actions/actions';
+import { TourContainer, ButtonsContainer, FavButton , DescriptionContainer} from './TourStyles';
 import blackFavIcon from '../../../assets/icons/blackFavIcon.png';
 import deleteIcon from '../../../assets/icons/deleteIcon.png';
-import { BuyButton } from '../../atoms/Buttons/Buttons';
 
 interface TourProps {
   tour: TourType;

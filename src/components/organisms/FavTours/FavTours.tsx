@@ -16,15 +16,19 @@ const FavTours: React.FC = () => {
   return (
     <Container>
       <ClearAllText onClick={handleRemoveAllFavorites}>Clear all</ClearAllText>
-      <TourContainer>
-        {favorites.map((tour: TourType) => (
-          <Tour
-            key={tour.id}
-            tour={tour}
-            isOnFavoritesPage={true}
-          />
-        ))}
-      </TourContainer>
+      {favorites.length === 0 ? (
+        <p>You don't have favorites tours :(</p>
+      ) : (
+        <TourContainer>
+          {favorites.map((tour: TourType) => (
+            <Tour
+              key={tour.id}
+              tour={tour}
+              isOnFavoritesPage={true}
+            />
+          ))}
+        </TourContainer>
+      )}
     </Container>
   );
 };
