@@ -6,6 +6,7 @@
 - React
 - Redux(state management)
 - TypeScript
+- Apollo
 - Atomic design Pattern
 - Styled Component
 
