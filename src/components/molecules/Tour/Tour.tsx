@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Tour as TourType } from '../../../types/tourType';
-import { TourContainer, ButtonsContainer, FavButton } from './TourStyles';
+import { TourContainer, ButtonsContainer, FavButton , DescriptionContainer} from './TourStyles';
 import { addFavorite, removeFavorite } from '../../../actions/actions';
 import blackFavIcon from '../../../assets/icons/blackFavIcon.png';
 import deleteIcon from '../../../assets/icons/deleteIcon.png';
@@ -29,8 +29,10 @@ const Tour: React.FC<TourProps> = ({ tour, isOnFavoritesPage }) => {
   return (
     <TourContainer>
       <img src={tour.img} alt={tour.name} />
-      <h2>{tour.name}</h2>
-      <p>{tour.description}</p>
+      <DescriptionContainer>
+        <h2>{tour.name}</h2>
+        <p>{tour.description}</p>
+      </DescriptionContainer>
       <ButtonsContainer>
         <BuyButton />
         {isOnFavoritesPage ? (

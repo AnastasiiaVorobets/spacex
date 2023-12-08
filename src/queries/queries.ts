@@ -1,7 +1,11 @@
 import { gql } from '@apollo/client';
 
-const GET_SPACE_X = gql`
-  
+export const getRockets = gql`
+  query ExampleQuery {
+    rockets {
+      id
+      name
+      description
+    }
+  }
 `;
-
-export default GET_SPACE_X;

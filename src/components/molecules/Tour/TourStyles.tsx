@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const TourContainer = styled.div`
   width: 411px;
-  height: 572px;
   margin: 16px;
   text-align: center;
   border: 1px solid #ccc;
@@ -34,9 +33,16 @@ export const TourContainer = styled.div`
   }
 `;
 
+export const DescriptionContainer = styled.div`
+    height: 150px;
+    margin: 16px auto 0;
+    font-size: 16px;
+    color: #556b84;
+`;
+
 export const ButtonsContainer = styled.div`
   width: 347px;
-  margin: 50px auto 0;
+  margin: 50px auto 24px;
   display: flex;
   justify-content: space-around;
 `;

@@ -15,7 +15,7 @@ export const TourListHeading = styled.h1`
 export const TourListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: start;
 `;
 
 export const PaginationDots = styled.div`
