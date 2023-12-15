@@ -4,14 +4,15 @@ import { Tour as TourType } from '../../../types/tourType';
 import { RootState } from '../../../store/store';
 import { removeAllFavorites } from '../../../actions/actions';
 import { TourContainer, ClearAllText, Container } from './FavToursStyles';
+import { useCallback } from 'react';
 
 const FavTours: React.FC = () => {
   const favorites = useSelector((state: RootState) => state.favorites);
   const dispatch = useDispatch();
 
-  const handleRemoveAllFavorites = () => {
+  const handleRemoveAllFavorites = useCallback(() => {
     dispatch(removeAllFavorites());
-  };
+  }, [dispatch]);
 
   return (
     <Container>

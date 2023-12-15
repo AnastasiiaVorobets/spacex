@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useCallback, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { BuyButton } from '../../atoms/Buttons/Buttons';
+import { RootState } from '../../../store/store';
 import { Tour as TourType } from '../../../types/tourType';
 import { addFavorite, removeFavorite } from '../../../actions/actions';
-import { TourContainer, ButtonsContainer, FavButton , DescriptionContainer} from './TourStyles';
+import { TourContainer, ButtonsContainer, FavButton, DescriptionContainer } from './TourStyles';
 import blackFavIcon from '../../../assets/icons/blackFavIcon.png';
 import deleteIcon from '../../../assets/icons/deleteIcon.png';
 
@@ -14,17 +15,30 @@ interface TourProps {
 
 const Tour: React.FC<TourProps> = ({ tour, isOnFavoritesPage }) => {
   const dispatch = useDispatch();
-  const [isFavorited, setIsFavorited] = useState(false);
+  
+  const isFavorited = useSelector((state: RootState) =>
+    state.favorites.some((favorite) => favorite.id === tour.id)
+  );
 
-  const handleFavoriteClick = () => {
+  const handleFavoriteClick = useCallback(() => {
     dispatch(addFavorite(tour));
-    setIsFavorited(true);
-  };
+  }, [dispatch, tour]);
 
-  const handleRemoveFromFavoritesClick = () => {
+  const handleRemoveFromFavoritesClick = useCallback(() => {
     dispatch(removeFavorite(tour.id));
-    setIsFavorited(false);
-  };
+  }, [dispatch, tour]);
+
+  const favButton = useMemo(() => (
+    <FavButton onClick={handleFavoriteClick} isFavorited={isFavorited}>
+      <img src={blackFavIcon} alt="blackFavIcon" />
+    </FavButton>
+  ), [handleFavoriteClick, isFavorited]);
+
+  const deleteButton = useMemo(() => (
+    <FavButton onClick={handleRemoveFromFavoritesClick}>
+      <img src={deleteIcon} alt="deleteIcon" />
+    </FavButton>
+  ), [handleRemoveFromFavoritesClick]);
 
   return (
     <TourContainer>
@@ -35,15 +49,7 @@ const Tour: React.FC<TourProps> = ({ tour, isOnFavoritesPage }) => {
       </DescriptionContainer>
       <ButtonsContainer>
         <BuyButton />
-        {isOnFavoritesPage ? (
-          <FavButton onClick={handleRemoveFromFavoritesClick}>
-            <img src={deleteIcon} alt="deleteIcon" />
-          </FavButton>
-        ) : (
-          <FavButton onClick={handleFavoriteClick} isFavorited={isFavorited}>
-            <img src={blackFavIcon} alt="blackFavIcon" />
-          </FavButton>
-        )}
+        {isOnFavoritesPage ? deleteButton : favButton}
       </ButtonsContainer>
     </TourContainer>
   );

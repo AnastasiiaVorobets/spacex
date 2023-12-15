@@ -1,7 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import Tour from '../../molecules/Tour/Tour';
 import { Tour as TourType } from '../../../types/tourType';
-import { TourListHeading, TourListContainer, PaginationDots, Container, HeaderBlock, StyledButton,StyledArrow, ButtonsContainer } from './TourListStyles';
+import {
+  TourListHeading,
+  TourListContainer,
+  PaginationDots,
+  Container,
+  HeaderBlock,
+  StyledButton,
+  StyledArrow,
+  ButtonsContainer,
+} from './TourListStyles';
+
 import arrowRight from '../../../assets/icons/arrowRight.png';
 import arrowLeft from '../../../assets/icons/arrowLeft.png';
 
@@ -14,37 +24,37 @@ const TourList: React.FC<TourListProps> = ({ tours }) => {
 
   const toursPerPage = 3;
   const indexOfLastTour = currentTourIndex + toursPerPage;
-  const currentTours = tours.slice(currentTourIndex, indexOfLastTour);
+  const currentTours = useMemo(() => tours.slice(currentTourIndex, indexOfLastTour), [
+    currentTourIndex,
+    tours,
+  ]);
 
-  const totalPages = Math.ceil(tours.length / toursPerPage);
+  const totalPages = useMemo(() => Math.ceil(tours.length / toursPerPage), [tours, toursPerPage]);
 
-  const handlePrevClick = () => {
+  const handlePrevClick = useCallback(() => {
     setCurrentTourIndex((prevIndex) => Math.max(prevIndex - 1, 0));
-  };
+  }, []);
 
-  const handleNextClick = () => {
-    setCurrentTourIndex((prevIndex) =>
-      Math.min(prevIndex + 1, tours.length - toursPerPage)
-    );
-  };
+  const handleNextClick = useCallback(() => {
+    setCurrentTourIndex((prevIndex) => Math.min(prevIndex + 1, tours.length - toursPerPage));
+  }, [tours.length, toursPerPage]);
 
   return (
-    <Container id='main'>
-
+    <Container id="main">
       <HeaderBlock>
-      <TourListHeading>Popular Tours</TourListHeading>
-      <ButtonsContainer>
-      <StyledButton onClick={handlePrevClick} disabled={currentTourIndex === 0}>
-        <StyledArrow src={arrowLeft} alt="arrowLeft" />
-      </StyledButton>
-      <StyledButton
-        onClick={handleNextClick}
-        disabled={currentTourIndex === tours.length - toursPerPage}
-      >
-        <StyledArrow src={arrowRight} alt="arrowRight" />
-      </StyledButton>
-      </ButtonsContainer>
-    </HeaderBlock>
+        <TourListHeading>Popular Tours</TourListHeading>
+        <ButtonsContainer>
+          <StyledButton onClick={handlePrevClick} disabled={currentTourIndex === 0}>
+            <StyledArrow src={arrowLeft} alt="arrowLeft" />
+          </StyledButton>
+          <StyledButton
+            onClick={handleNextClick}
+            disabled={currentTourIndex === tours.length - toursPerPage}
+          >
+            <StyledArrow src={arrowRight} alt="arrowRight" />
+          </StyledButton>
+        </ButtonsContainer>
+      </HeaderBlock>
 
       <TourListContainer>
         {currentTours.map((tour) => (
